@@ -1,4 +1,7 @@
 const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
+const Joi = require("joi");
+const passwordComplexity = require("joi-password-complexity");
 const Schema = mongoose.Schema;
 
 var empSchema = new Schema({
@@ -57,10 +60,36 @@ var empSchema = new Schema({
     type: String,
     required: true,
   },
-  confirmPassword: {
-    type: String,
-    required: true,
-  },
+ 
 });
 
-module.exports = mongoose.model("Emp", empSchema);
+
+empSchema.methods.generateAuthToken = function () {
+  const token = jwt.sign({ _id: this._id }, process.env.JWTPRIVATEKEY, {
+    expiresIn: "7d",
+  });
+  return token;
+};
+
+const Employees = mongoose.model("Employee", empSchema);
+
+const validate = (data) => {
+  const schema = Joi.object({
+    fname: Joi.string().required().label("First Name"),
+    lname: Joi.string().required().label("Last Name"),
+    address: Joi.string().required().label("Last Name"),
+    email: Joi.string().email().required().label("Email"),
+    contactNumber: Joi.string().required().label("Last Name"),
+    nic: Joi.string().required().label("Last Name"),
+    gitUsername: Joi.string().required().label("Last Name"),
+    university: Joi.string().required().label("Last Name"),
+    batch: Joi.string().required().label("Last Name"),
+    bank: Joi.string().required().label("Last Name"),
+    bankAccount: Joi.string().required().label("Last Name"),
+    bankBranch: Joi.string().required().label("Last Name"),
+    password: passwordComplexity().required().label("Password"),
+  });
+  return schema.validate(data);
+};
+
+module.exports = { Employees, validate };

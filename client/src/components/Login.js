@@ -8,7 +8,7 @@ export default function Login() {
     <div className="container">
       <img className="bgImage" src={backgroundImage} alt="" />
       <div className="card">
-        <div className="form_login">
+        <div className="form_login" >
           <div className="card-header">Sign In</div>
           <form>
             <div className="card-body">

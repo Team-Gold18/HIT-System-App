@@ -20,7 +20,7 @@ export default class CreatePost extends Component {
       bankAccount: "",
       bankBranch: "",
       password: "",
-      confirmPassword: "",
+    
     };
   }
 
@@ -49,7 +49,7 @@ export default class CreatePost extends Component {
       bankAccount,
       bankBranch,
       password,
-      confirmPassword,
+    
     } = this.state;
 
     const data = {
@@ -66,7 +66,7 @@ export default class CreatePost extends Component {
       bankAccount: bankAccount,
       bankBranch: bankBranch,
       password: password,
-      confirmPassword: confirmPassword,
+    
     };
 
 
@@ -94,7 +94,7 @@ export default class CreatePost extends Component {
             bankAccount: "",
             bankBranch: "",
             password: "",
-            confirmPassword: "",
+        
       });
         
         }
@@ -279,17 +279,7 @@ export default class CreatePost extends Component {
                     onChange={this.handleInputChange}
                   />
                 </div>
-                <div className="group">
-                  <label className="label">Confirm Password</label>
-                  <input
-                    className="input"
-                    type="password"
-                    name="confirmPassword"
-                    value={this.state.confirmPassword}
-                    onChange={this.handleInputChange}
-                  />
-                </div>
-
+              
                 <button
                   type="submit"
                   class="btn btn-outline-primary"
