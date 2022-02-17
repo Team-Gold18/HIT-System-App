@@ -69,11 +69,18 @@ export default class CreatePost extends Component {
       confirmPassword: confirmPassword,
     };
 
+
+// if (password !== confirmPassword) {
+//   setTimeout(() => {
+//   }, 5000);
+//   return alert("Passwords do not match");
+// }
     axios
       .post("http://localhost:9000/employee/createEmployee", data)
       .then((res) => {
         if (res.data.success) {
-          this.setState({
+
+      this.setState({
             fname: "",
             lname: "",
             address: "",
@@ -88,9 +95,11 @@ export default class CreatePost extends Component {
             bankBranch: "",
             password: "",
             confirmPassword: "",
-          });
+      });
+        
         }
       });
+   
   };
   render() {
     return (
@@ -103,7 +112,6 @@ export default class CreatePost extends Component {
             <form action="" method="post">
               <div className="card-body">
                 <div className="group">
-                  {" "}
                   <label className="label">First Name</label>
                   <input
                     name="fname"
@@ -111,6 +119,7 @@ export default class CreatePost extends Component {
                     type="text"
                     value={this.state.fname}
                     onChange={this.handleInputChange}
+                    required
                   />
                   <label className="label">Last Name</label>
                   <input
@@ -119,6 +128,7 @@ export default class CreatePost extends Component {
                     type="text"
                     value={this.state.lname}
                     onChange={this.handleInputChange}
+                    required
                   />
                 </div>
 
@@ -130,6 +140,7 @@ export default class CreatePost extends Component {
                     type="text"
                     value={this.state.address}
                     onChange={this.handleInputChange}
+                    required
                   />
                 </div>
 
@@ -141,6 +152,7 @@ export default class CreatePost extends Component {
                     type="email"
                     value={this.state.email}
                     onChange={this.handleInputChange}
+                    required
                   />
                 </div>
 
@@ -152,6 +164,7 @@ export default class CreatePost extends Component {
                     type="text"
                     value={this.state.contactNumber}
                     onChange={this.handleInputChange}
+                    required
                   />
                 </div>
 

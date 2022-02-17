@@ -4,6 +4,8 @@ import Home from "./components/Home";
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./components/Login";
+import EmployeeDetails from "./components/EmployeeDetails";
+import EmployeeList from "./components/EmployeeList";
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
+          <Route path="/employee/:id" component={EmployeeDetails} />
+          <Route path="/employee" component={EmployeeList} />
         </Switch>
       </Router>
     </div>
