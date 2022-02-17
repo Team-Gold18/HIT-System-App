@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const employeeSchema = new Schema({
+var empSchema = new Schema({
   fname: {
     type: String,
     required: true,
@@ -27,7 +27,7 @@ const employeeSchema = new Schema({
     type: String,
     required: true,
   },
-  gitusername: {
+  gitUsername: {
     type: String,
     required: true,
   },
@@ -39,11 +39,28 @@ const employeeSchema = new Schema({
     type: String,
     required: true,
   },
+  bank: {
+    type: String,
+    required: true,
+  },
 
+  bankAccount: {
+    type: String,
+    required: true,
+  },
+
+  bankBranch: {
+    type: String,
+    required: true,
+  },
   password: {
+    type: String,
+    required: true,
+  },
+  confirmPassword: {
     type: String,
     required: true,
   },
 });
 
-module.exports = mongoose.model("Employee", employeeSchema);
+module.exports = mongoose.model("Emp", empSchema);
