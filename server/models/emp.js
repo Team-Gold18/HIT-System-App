@@ -17,7 +17,6 @@ var empSchema = new Schema({
     type: String,
     required: true,
   },
-
   email: {
     type: String,
     required: true,
@@ -60,7 +59,7 @@ var empSchema = new Schema({
     type: String,
     required: true,
   },
- 
+  
 });
 
 

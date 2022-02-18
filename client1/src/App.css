@@ -1,0 +1,19 @@
+.App {
+  text-align: center;
+
+ 
+}
+  
+
+.container{
+
+  position: relative;
+  min-height: calc(100vh - 70px);
+  overflow-x: hidden;
+  display:contents;
+  top: 72px;
+  /* padding: 0 calc(3.5vw + 5px); */
+  padding-top: 70px;
+  
+ 
+}
