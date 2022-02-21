@@ -8,7 +8,7 @@ const bcrypt = require("bcrypt");
 // get all employees
 
 exports.getEmployees = async function (req, res) {
-  Emp.find().exec((err, emp) => {
+  Employees.find().exec((err, emp) => {
     if (err) {
       return res.status(400).json({
         err: err,

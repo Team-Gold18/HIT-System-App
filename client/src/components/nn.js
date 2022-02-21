@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class Home extends Component {
+export default class nn extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -57,7 +57,10 @@ export default class Home extends Component {
         <br />
         <br />
 
-            <div class="input-group rounded" style={{marginLeft:"80px",width:"1200px"}}>
+        <div
+          class="input-group rounded"
+          style={{ marginLeft: "80px", width: "1200px" }}
+        >
           <input
             type="search"
             class="form-control rounded"
@@ -77,6 +80,7 @@ export default class Home extends Component {
               <th scope="col"></th>
               <th scope="col">First Name</th>
               <th scope="col"> Last Name</th>
+              <th scope="col"> img</th>
               <th scope="col">Contact Number</th>
               <th scope="col">Action</th>
             </tr>
@@ -96,6 +100,9 @@ export default class Home extends Component {
                   </td>
                   <td>{emp.lname}</td>
                   <td>{emp.contactNumber}</td>
+                  <td>
+                    <img src={emp.image} width="50px" />{" "}
+                  </td>
                   <td>
                     <a href="#" onClick={() => this.onDelete(emp._id)}>
                       <i className="fas fa-trash-alt"></i> Delete

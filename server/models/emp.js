@@ -59,7 +59,10 @@ var empSchema = new Schema({
     type: String,
     required: true,
   },
-  
+  image: {
+    type: String,
+    
+  },
 });
 
 
@@ -76,17 +79,19 @@ const validate = (data) => {
   const schema = Joi.object({
     fname: Joi.string().required().label("First Name"),
     lname: Joi.string().required().label("Last Name"),
-    address: Joi.string().required().label("Last Name"),
+    address: Joi.string().required().label("Address"),
     email: Joi.string().email().required().label("Email"),
-    contactNumber: Joi.string().required().label("Last Name"),
-    nic: Joi.string().required().label("Last Name"),
-    gitUsername: Joi.string().required().label("Last Name"),
-    university: Joi.string().required().label("Last Name"),
-    batch: Joi.string().required().label("Last Name"),
-    bank: Joi.string().required().label("Last Name"),
-    bankAccount: Joi.string().required().label("Last Name"),
-    bankBranch: Joi.string().required().label("Last Name"),
+    contactNumber: Joi.string().required().label("Contact Number"),
+    nic: Joi.string().required().label("NIC"),
+    gitUsername: Joi.string().required().label("GIT User Name"),
+    university: Joi.string().required().label("University"),
+    batch: Joi.string().required().label("Batch"),
+    bank: Joi.string().required().label("Bank "),
+    bankAccount: Joi.string().required().label("Bank Account"),
+    bankBranch: Joi.string().required().label("Bank Branch"),
     password: passwordComplexity().required().label("Password"),
+    //img: Joi.any().required().label("image"),
+    image: Joi.string()
   });
   return schema.validate(data);
 };
